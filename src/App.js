@@ -1,26 +1,38 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Nav from './pages/Nav.js';
+import Grids from './pages/Grids.js';
+import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  background: {
+    backgroundColor: '#282c34',
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    fontSize: 'calc(10px + 2vmin)',
+    color: 'white',
+  },
+}));
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const classes = useStyles();
+	return (
+		<>
+		<Nav />
+		<div className="App">
+		<header className={classes.background}>
+		<br />
+		<Container fixed>
+			<Grids />
+			<br />
+		</Container>
+		</header>
+		</div>
+		</>
+	);
 }
 
 export default App;
